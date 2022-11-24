@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>To Do List</title>
+    <style>
+        .header{
+        
+        background-color: #ffffff80;
+          border-radius: 7%;
+          box-shadow: 4px 3px #00000080;
+          font-size: 20px;
+         margin-left: 30%;
+         margin-right: 30%;
+         margin-top: 2cm;
+        }
+        * {
+            box-sizing: border-box;
+        }
+            .body {
+            background-color: rgba(187, 143, 102, 0.959);
+            margin: 0;
+        }
+        ul li {
+            cursor: pointer;
+            padding: 10px 8px 12px 40px;
+            background:	#FFB6C180;
+            font-size: 20px;
+        }
+        ul {
+            margin: 0 300px 0 300px;
+        }
+        .ch {
+            margin-right: 50px;
+            background-color: rgba(159, 1, 101, 0.836);
+            color:white;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .bt{
+            margin-left: 50px;
+            background-color: rgba(104, 40, 139, 0.836);
+            color:white;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        img{
+
+            margin-top: 6px;
+            margin-left:20px;
+            margin-bottom: 10px;
+        }
+
+       input{
+        font-weight: bold;
+        border-radius: 20px;
+        font-size: 15px;
+        margin-bottom: 15px;
+       }
+       button{
+        background-color: transparent;
+        border-color: rgb(255, 4, 142);
+        padding: 7px;
+        font-weight: bold;
+        cursor:pointer;
+       }
+    </style>
+</head>
+<body background="fundo.png">
+   
+   <center> <div id="div" class="header">
+        <h2>To Do List </h2> 
+        <img src="list.png" title="List" width="80px" height="80px">
+       <br>
+        <input type="text" id="input" placeholder="Escreva...">
+        <button><span onclick="add()" class="addButton">Add</span></button>
+      </div> </center>
+      <br>
+      <br>
+
+      <center><ul id="ul">
+
+      </ul>
+    </center>
+    
+
+     <script>
+         function add(){
+            var task = document.getElementById("input").value;
+            var li = document.createElement("li");
+            var t = document.createTextNode(task);
+            var check = document.createElement("button");
+            check.innerHTML = "Check";
+            check.addEventListener("click",function(){
+                li.style.textDecoration="line-through";
+            })
+            li.appendChild(t);
+            if (task==""){
+                alert ("Escreva algo!");}
+            else {
+                document.getElementById("ul").appendChild(li);
+            }    
+            document.getElementById("input").value="";
+            var button = document.createElement('button');
+            button.innerHTML = "Remover";
+            button.addEventListener("click", function() {
+            li.remove();})
+            li.appendChild(check);
+            li.appendChild(t);
+            li.appendChild(button);
+            document.getElementById('ul').appendChild(li);
+            document.getElementById('input').value="";
+            check.className="ch";
+            button.className="bt";
+            
+            
+        
+        }
+
+
+
+      </script>
+</body>
+</html>
