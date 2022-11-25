@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,146 +8,149 @@
 
 
 
-    <style>
-        .box {
-            width: 400px;
-            padding: 30px;
-            margin: 10px;
-            margin-left: 500px;
-            margin-top: 60px;
-            text-align: center;
-            background-color: #ffffff80;
-            border-radius: 4%;
-            box-shadow: 4px 3px #00000080;
-            font-size: 20px;
+    <style> 
+    
+        .box{
+          width: 400px;
+          padding: 30px;
+          margin: 10px;
+          margin-left: 500px;
+          margin-top: 60px;
+          text-align: center;
+          background-color: #ffffff80;
+          border-radius: 4%;
+          box-shadow: 4px 3px #00000080;
+          font-size: 20px;
         }
         
-        input {
-            width: 100%;
-            padding: 4px;
-            background-color: transparent;
-            display: inline-block;
+        input{
+          width: 100%;
+          padding :4px;
+          background-color: transparent;
+          display: inline-block;
+        
         }
         
-        button {
-            background-color: transparent;
-            border-color: rgb(255, 4, 142);
-            padding: 7px;
-            font-weight: bold;
-            cursor: pointer;
+        button{
+          background-color: transparent;
+          border-color: rgb(255, 4, 142);
+          padding: 7px;
+          font-weight: bold;
+          cursor:pointer;
         }
         
-        button:hover {
-            background-color: #ecb3f280;
+        button:hover{
+        background-color: #ecb3f280;
+        
         }
         
-        link {
-            font-size: 30px;
-            padding-top: 30px;
+        link{
+          font-size: 30px;
+          padding-top: 30px;
         }
         
-        a {
-            text-decoration: none;
-            font-weight: bold;
+        a{
+          text-decoration: none;
+          font-weight: bold;
+        
         }
-    </style>
+        </style>
 </head>
 
 <body background="fundo.png">
     <div class="first">
 
+  
 
+</div>
 
-    </div>
+<div class="box">
+   <h1>Cadastro</h1>
+<br>  
+  <p> 
+    <label for="login_cad">Seu Login</label>
+    <input id="login_cad" name="login_cad" required="required" type="text" placeholder="login" />
+    <span id="login"></span>
+  </p>
+  <p> 
+    <label for="nome_cad">Seu nome</label>
+    <input id="nome_cad" name="nome_cad" required="required" type="text" placeholder="nome" />
+    <span id="nome"></span>
+  </p>
+   
+  <p> 
+    <label for="email_cad">Seu e-mail</label>
+    <input id="email_cad" name="email_cad" required="required" type="email" placeholder="contato@gmail.com"/> 
+    <span id="email"></span>
+  </p>
+   
+  <p> 
+    <label for="senha_cad">Sua senha</label>
+    <input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="ex. 1234"/>
+  </p>
 
-    <div class="box">
-        <h1>Cadastro</h1>
-        <br>
-        <p>
-            <label for="login_cad">Seu Login</label>
-            <input id="login_cad" name="login_cad" required="required" type="text" placeholder="login" />
-            <span id="login"></span>
-        </p>
-        <p>
-            <label for="nome_cad">Seu nome</label>
-            <input id="nome_cad" name="nome_cad" required="required" type="text" placeholder="nome" />
-            <span id="nome"></span>
-        </p>
+  <p> 
+    <label for="csenha_cad">Confirmar senha</label>
+    <input id="csenha_cad" name="senha_cad" required="required" type="password" placeholder="ex. 1234"/>
+    <span id="senha"></span>
+  </p> 
 
-        <p>
-            <label for="email_cad">Seu e-mail</label>
-            <input id="email_cad" name="email_cad" required="required" type="email" placeholder="contato@gmail.com" />
-            <span id="email"></span>
-        </p>
+  <button onclick="validar()"> Entrar </button>
+     
+  <p class="link">  
+    Já tem conta?
+<br><br>
+  <a href="#paralogin"> Login</a>
+  </p>
 
-        <p>
-            <label for="senha_cad">Sua senha</label>
-            <input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="ex. 1234" />
-        </p>
-
-        <p>
-            <label for="csenha_cad">Confirmar senha</label>
-            <input id="csenha_cad" name="senha_cad" required="required" type="password" placeholder="ex. 1234" />
-            <span id="senha"></span>
-        </p>
-
-        <button onclick="validar()"> Entrar </button>
-
-        <p class="link">
-            Já tem conta?
-            <br><br>
-            <a href="#paralogin"> Login</a>
-        </p>
-
-    </div>
+</div>  
 </body>
-<script>
-    function validar() {
-        var cont = 0;
+<script> 
+  function validar() {
+    var cont = 0;
 
-        var login = document.getElementById('login_cad').value;
-        if (login.length < 10) {
-            localStorage.setItem('login', login);
-            cont++
-        } else {
-            document.getElementById('login').innerHTML = "<p style='color: red; font-size: 16px'>O login deve ter menos de 10 caracteres</p>"
-        }
-
-        var nome = document.getElementById('nome_cad').value;
-        if (nome.length > 10) {
-            localStorage.setItem('nome', nome);
-            cont++
-        } else {
-            document.getElementById('nome').innerHTML = "<p style='color: red; font-size: 16px'>O nome deve ter mais de 10 caracteres</p>"
-        }
-
-        var email = document.getElementById('email_cad').value;
-        var cemail = false;
-        for (let i = 0; i < email.length; i++) {
-            if (email[i] == "@") {
-                cemail = true;
-                localStorage.setItem('email', email);
-                cont++
-                break
-            }
-        }
-        if (!cemail) {
-            document.getElementById('email').innerHTML = "<p style='color: red; font-size: 16px'>Email inválido</p>"
-        }
-
-        var senha = document.getElementById('senha_cad').value;
-        var csenha = document.getElementById('csenha_cad').value;
-        if (senha == csenha) {
-            localStorage.setItem('senha', senha);
-            cont++
-        } else {
-            document.getElementById('senha').innerHTML = "<p style='color: red; font-size: 16px'>As senhas devem ser iguais</p>"
-        }
-
-        if (cont == 4) {
-            window.location = 'to_do_list.html'
-        }
+    var login = document.getElementById('login_cad').value;
+    if (login.length < 10) {
+      localStorage.setItem('login', login);
+      cont++
+    } else {
+      document.getElementById('login').innerHTML = "<p style='color: red; font-size: 16px'>O login deve ter menos de 10 caracteres</p>"
     }
-</script>
 
+    var nome = document.getElementById('nome_cad').value;
+    if (nome.length > 10) {
+      localStorage.setItem('nome', nome);
+      cont++
+    } else {
+      document.getElementById('nome').innerHTML = "<p style='color: red; font-size: 16px'>O nome deve ter mais de 10 caracteres</p>"
+    }
+
+    var email = document.getElementById('email_cad').value;
+    var cemail = false;
+    for (let i=0; i<email.length; i++){
+      if (email[i] == "@") {
+        cemail = true;
+        localStorage.setItem('email', email);
+        cont++
+        break
+      }
+    }
+    if (!cemail) {
+      document.getElementById('email').innerHTML = "<p style='color: red; font-size: 16px'>Email inválido</p>"
+    }
+
+    var senha = document.getElementById('senha_cad').value;
+    var csenha = document.getElementById('csenha_cad').value;
+    if (senha == csenha) {
+      localStorage.setItem('senha', senha);
+      cont++
+    } else {
+      document.getElementById('senha').innerHTML = "<p style='color: red; font-size: 16px'>As senhas devem ser iguais</p>"
+    }
+
+    if (cont == 4) {
+      window.location = 'to_do_list.html'
+    }
+  }
+</script>
 </html>
