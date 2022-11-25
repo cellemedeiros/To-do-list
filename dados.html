@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastros</title>
+    <style>
+      
+      .box{
+          width: 400px;
+          padding: 30px;
+          margin: 10px;
+          margin-left: 500px;
+          margin-top: 60px;
+          text-align: center;
+          background-color: #009ee780;
+          border-radius: 4%;
+          box-shadow: 4px 3px #00000080;
+          font-size: 20px;
+          color: pink;
+        }
+        
+      
+    </style>
+</head>
+<body background="fundo.png">
+    <div class="box">
+        <header>
+            <h1>Dados cadastrados</h1>
+        </header>
+        <div>
+            <p>Nome:</p>
+            <small id="nome"></small>
+
+            <p>Login:</p>
+            <small id="login"></small>
+
+            <p>email:</p>
+            <small id="email"></small>
+
+            <p>Senha:</p>
+            <small id="senha"></small>
+        </div>
+        <br><br>
+        <center>
+        <a href="to_do_list.html"> <h2>Voltar</h2></a>
+        </center>
+    </div>
+
+
+
+    <script>
+        document.getElementById('nome').innerHTML = localStorage.getItem('nome');
+        document.getElementById('login').innerHTML = localStorage.getItem('login');
+        document.getElementById('email').innerHTML = localStorage.getItem('email');
+        document.getElementById('senha').innerHTML = localStorage.getItem('senha');
+    </script>
+</body>
+</html>
